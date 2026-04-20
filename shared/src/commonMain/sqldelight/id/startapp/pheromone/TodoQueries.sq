@@ -1,0 +1,93 @@
+-- TodoQueries.sq
+--
+-- SQL queries for the Todo entity.
+-- SQLDelight will generate a TodoQueries class with these methods.
+
+-- Get all todos (not deleted)
+selectAllTodos:
+SELECT *
+FROM todo
+WHERE deleted_at IS NULL
+ORDER BY created_at DESC;
+
+-- Get a single todo by ID
+selectTodoById:
+SELECT *
+FROM todo
+WHERE id = ? AND deleted_at IS NULL
+LIMIT 1;
+
+-- Get completed todos
+selectCompletedTodos:
+SELECT *
+FROM todo
+WHERE is_completed = 1 AND deleted_at IS NULL
+ORDER BY updated_at DESC;
+
+-- Get active (not completed) todos
+selectActiveTodos:
+SELECT *
+FROM todo
+WHERE is_completed = 0 AND deleted_at IS NULL
+ORDER BY priority DESC, created_at DESC;
+
+-- Insert a new todo
+insertTodo:
+INSERT INTO todo (
+    id, title, description, is_completed, priority,
+    due_date, created_at, updated_at, synced_at
+)
+VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);
+
+-- Update an existing todo
+updateTodo:
+UPDATE todo
+SET
+    title = ?,
+    description = ?,
+    is_completed = ?,
+    priority = ?,
+    due_date = ?,
+    updated_at = ?,
+    synced_at = ?
+WHERE id = ?;
+
+-- Toggle todo completion
+toggleTodoCompleted:
+UPDATE todo
+SET
+    is_completed = ?,
+    updated_at = ?,
+    synced_at = ?
+WHERE id = ?;
+
+-- Soft delete a todo
+deleteTodo:
+UPDATE todo
+SET
+    deleted_at = ?,
+    updated_at = ?,
+    synced_at = ?
+WHERE id = ?;
+
+-- Permanently delete a todo (for cleanup)
+hardDeleteTodo:
+DELETE FROM todo
+WHERE id = ?;
+
+-- Get count of active todos
+countActiveTodos:
+SELECT COUNT(*)
+FROM todo
+WHERE is_completed = 0 AND deleted_at IS NULL;
+
+-- Get todos that need syncing (not synced in last hour)
+selectPendingSyncTodos:
+SELECT *
+FROM todo
+WHERE deleted_at IS NULL AND synced_at < ?
+ORDER BY synced_at ASC;
+
+-- Delete all todos (for testing/logout)
+deleteAllTodos:
+DELETE FROM todo;

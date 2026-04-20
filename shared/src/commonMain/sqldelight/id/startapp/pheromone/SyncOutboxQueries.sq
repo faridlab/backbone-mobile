@@ -1,0 +1,109 @@
+-- SyncOutboxQueries.sq
+--
+-- Write queue for offline mutations (outbox pattern).
+-- Stores pending create/update/delete operations that need
+-- to be synced to the server when connectivity is restored.
+
+CREATE TABLE IF NOT EXISTS sync_outbox (
+    id              TEXT NOT NULL PRIMARY KEY,
+    entity_type     TEXT NOT NULL,
+    entity_id       TEXT NOT NULL,
+    operation       TEXT NOT NULL,
+    payload         TEXT NOT NULL,
+    created_at      INTEGER NOT NULL,
+    retry_count     INTEGER NOT NULL DEFAULT 0,
+    last_retry_at   INTEGER,
+    status          TEXT NOT NULL DEFAULT 'pending',
+    error_message   TEXT,
+    priority        INTEGER NOT NULL DEFAULT 0,
+    device_id       TEXT NOT NULL,
+    version         INTEGER NOT NULL DEFAULT 1
+);
+
+CREATE INDEX IF NOT EXISTS idx_outbox_status ON sync_outbox(status);
+CREATE INDEX IF NOT EXISTS idx_outbox_priority ON sync_outbox(priority DESC, created_at ASC);
+CREATE INDEX IF NOT EXISTS idx_outbox_entity ON sync_outbox(entity_type, entity_id);
+
+-- Get all pending entries ordered by priority (highest first), then creation time
+selectPending:
+SELECT *
+FROM sync_outbox
+WHERE status = 'pending'
+ORDER BY priority DESC, created_at ASC;
+
+-- Get pending entries for a specific entity (causal ordering)
+selectPendingForEntity:
+SELECT *
+FROM sync_outbox
+WHERE entity_type = ? AND entity_id = ? AND status = 'pending'
+ORDER BY created_at ASC;
+
+-- Get entries by status
+selectByStatus:
+SELECT *
+FROM sync_outbox
+WHERE status = ?
+ORDER BY priority DESC, created_at ASC;
+
+-- Count entries by status
+countByStatus:
+SELECT COUNT(*)
+FROM sync_outbox
+WHERE status = ?;
+
+-- Count all pending entries (for badge)
+countPending:
+SELECT COUNT(*)
+FROM sync_outbox
+WHERE status IN ('pending', 'syncing', 'failed');
+
+-- Insert a new outbox entry
+insert:
+INSERT INTO sync_outbox (id, entity_type, entity_id, operation, payload, created_at, retry_count, last_retry_at, status, error_message, priority, device_id, version)
+VALUES (?, ?, ?, ?, ?, ?, 0, NULL, 'pending', NULL, ?, ?, ?);
+
+-- Update the status of an entry
+updateStatus:
+UPDATE sync_outbox
+SET status = ?, error_message = ?
+WHERE id = ?;
+
+-- Mark an entry as synced
+markSynced:
+UPDATE sync_outbox
+SET status = 'synced'
+WHERE id = ?;
+
+-- Increment retry count and update last_retry_at
+incrementRetry:
+UPDATE sync_outbox
+SET retry_count = retry_count + 1, last_retry_at = ?, status = 'pending'
+WHERE id = ?;
+
+-- Mark entry as syncing (in progress)
+markSyncing:
+UPDATE sync_outbox
+SET status = 'syncing'
+WHERE id = ?;
+
+-- Delete all synced entries (cleanup)
+deleteSynced:
+DELETE FROM sync_outbox
+WHERE status = 'synced';
+
+-- Delete a specific entry (discard)
+deleteById:
+DELETE FROM sync_outbox
+WHERE id = ?;
+
+-- Check if entity has pending outbox entries
+hasPendingForEntity:
+SELECT COUNT(*) > 0
+FROM sync_outbox
+WHERE entity_type = ? AND entity_id = ? AND status IN ('pending', 'syncing');
+
+-- Update entity_id (for local ID replacement after server sync)
+updateEntityId:
+UPDATE sync_outbox
+SET entity_id = ?
+WHERE entity_id = ? AND entity_type = ?;

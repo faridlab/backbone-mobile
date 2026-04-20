@@ -1,0 +1,82 @@
+-- MediaCacheQueries.sq
+--
+-- Tracks cached media files (images, attachments) for offline access.
+-- Supports configurable cache levels and LRU eviction.
+
+CREATE TABLE IF NOT EXISTS media_cache (
+    url           TEXT NOT NULL PRIMARY KEY,
+    local_path    TEXT NOT NULL,
+    size_bytes    INTEGER NOT NULL,
+    cached_at     INTEGER NOT NULL,
+    entity_type   TEXT NOT NULL,
+    entity_id     TEXT NOT NULL,
+    media_type    TEXT NOT NULL,
+    is_uploaded   INTEGER NOT NULL DEFAULT 1
+);
+
+CREATE INDEX IF NOT EXISTS idx_media_entity ON media_cache(entity_type, entity_id);
+CREATE INDEX IF NOT EXISTS idx_media_upload ON media_cache(is_uploaded) WHERE is_uploaded = 0;
+
+-- Get all media for a specific entity
+selectByEntity:
+SELECT *
+FROM media_cache
+WHERE entity_type = ? AND entity_id = ?;
+
+-- Get a specific media entry by URL
+selectByUrl:
+SELECT *
+FROM media_cache
+WHERE url = ?;
+
+-- Get all pending uploads (photos taken offline)
+selectPendingUploads:
+SELECT *
+FROM media_cache
+WHERE is_uploaded = 0
+ORDER BY cached_at ASC;
+
+-- Get total cache size in bytes
+selectTotalSize:
+SELECT COALESCE(SUM(size_bytes), 0)
+FROM media_cache;
+
+-- Get oldest cached entries for LRU eviction (excluding pending uploads)
+selectOldestForEviction:
+SELECT *
+FROM media_cache
+WHERE is_uploaded = 1
+ORDER BY cached_at ASC
+LIMIT ?;
+
+-- Insert or update a media cache entry
+upsert:
+INSERT OR REPLACE INTO media_cache (url, local_path, size_bytes, cached_at, entity_type, entity_id, media_type, is_uploaded)
+VALUES (?, ?, ?, ?, ?, ?, ?, ?);
+
+-- Mark a media entry as uploaded
+markUploaded:
+UPDATE media_cache
+SET is_uploaded = 1, url = ?
+WHERE local_path = ?;
+
+-- Delete a specific media entry
+deleteByUrl:
+DELETE FROM media_cache
+WHERE url = ?;
+
+-- Delete all media for a specific entity
+deleteByEntity:
+DELETE FROM media_cache
+WHERE entity_type = ? AND entity_id = ?;
+
+-- Delete all entries (cache clear)
+deleteAll:
+DELETE FROM media_cache
+WHERE is_uploaded = 1;
+
+-- Count pending uploads
+countPendingUploads:
+SELECT COUNT(*)
+FROM media_cache
+WHERE is_uploaded = 0;

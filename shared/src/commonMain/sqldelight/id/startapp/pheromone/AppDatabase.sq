@@ -1,0 +1,38 @@
+-- AppDatabase.sq
+--
+-- Main SQLDelight schema file for the Backbone Mobile App.
+-- This file defines the database schema and version.
+--
+-- SQLDelight will generate Kotlin code from these SQL statements.
+
+-- Database version
+-- IMPORTANT: Update this version when making schema changes
+PRAGMA user_version = 3;
+
+CREATE TABLE IF NOT EXISTS todo (
+    id TEXT NOT NULL PRIMARY KEY,
+    title TEXT NOT NULL,
+    description TEXT,
+    is_completed INTEGER NOT NULL DEFAULT 0,
+    priority INTEGER NOT NULL DEFAULT 0,
+    due_date INTEGER,
+    created_at INTEGER NOT NULL,
+    updated_at INTEGER NOT NULL,
+    synced_at INTEGER NOT NULL,
+    deleted_at INTEGER
+);
+
+-- Indexes for common queries
+CREATE INDEX IF NOT EXISTS idx_todo_completed ON todo(is_completed, deleted_at);
+CREATE INDEX IF NOT EXISTS idx_todo_due_date ON todo(due_date) WHERE due_date IS NOT NULL;
+CREATE INDEX IF NOT EXISTS idx_todo_synced ON todo(synced_at) WHERE deleted_at IS NULL;
+
+-- Generic entity cache table for offline-first data
+CREATE TABLE IF NOT EXISTS entity_cache (
+    cache_key TEXT NOT NULL PRIMARY KEY,
+    json_data TEXT NOT NULL,
+    cached_at INTEGER NOT NULL,
+    expires_at INTEGER NOT NULL
+);
+
+CREATE INDEX IF NOT EXISTS idx_cache_expires ON entity_cache(expires_at);

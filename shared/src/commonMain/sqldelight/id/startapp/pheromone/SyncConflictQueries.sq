@@ -1,0 +1,76 @@
+-- SyncConflictQueries.sq
+--
+-- Stores sync conflicts for user resolution.
+-- When the same entity is modified both locally (offline) and
+-- on the server (by another user/device), the conflict is stored
+-- here for the user to manually resolve.
+
+CREATE TABLE IF NOT EXISTS sync_conflicts (
+    id              TEXT NOT NULL PRIMARY KEY,
+    entity_type     TEXT NOT NULL,
+    entity_id       TEXT NOT NULL,
+    local_data      TEXT NOT NULL,
+    server_data     TEXT NOT NULL,
+    local_version   INTEGER NOT NULL,
+    server_version  INTEGER NOT NULL,
+    detected_at     INTEGER NOT NULL,
+    resolved_at     INTEGER,
+    resolution      TEXT
+);
+
+CREATE INDEX IF NOT EXISTS idx_conflicts_unresolved
+    ON sync_conflicts(resolved_at)
+    WHERE resolved_at IS NULL;
+
+CREATE INDEX IF NOT EXISTS idx_conflicts_entity
+    ON sync_conflicts(entity_type, entity_id);
+
+-- Get all unresolved conflicts
+selectUnresolved:
+SELECT *
+FROM sync_conflicts
+WHERE resolved_at IS NULL
+ORDER BY detected_at DESC;
+
+-- Get unresolved conflicts for a specific entity
+selectUnresolvedForEntity:
+SELECT *
+FROM sync_conflicts
+WHERE entity_type = ? AND entity_id = ? AND resolved_at IS NULL
+LIMIT 1;
+
+-- Count unresolved conflicts (for badge)
+countUnresolved:
+SELECT COUNT(*)
+FROM sync_conflicts
+WHERE resolved_at IS NULL;
+
+-- Get a single conflict by ID
+selectById:
+SELECT *
+FROM sync_conflicts
+WHERE id = ?;
+
+-- Insert a new conflict
+insert:
+INSERT INTO sync_conflicts (id, entity_type, entity_id, local_data, server_data, local_version, server_version, detected_at, resolved_at, resolution)
+VALUES (?, ?, ?, ?, ?, ?, ?, ?, NULL, NULL);
+
+-- Resolve a conflict
+resolve:
+UPDATE sync_conflicts
+SET resolved_at = ?, resolution = ?
+WHERE id = ?;
+
+-- Get recent resolved conflicts (for history)
+selectResolved:
+SELECT *
+FROM sync_conflicts
+WHERE resolved_at IS NOT NULL
+ORDER BY resolved_at DESC
+LIMIT ?;
+
+-- Delete old resolved conflicts (retention cleanup)
+deleteOldResolved:
+DELETE FROM sync_conflicts
+WHERE resolved_at IS NOT NULL AND resolved_at < ?;

@@ -1,0 +1,46 @@
+-- CacheQueries.sq
+--
+-- Generic JSON blob cache with TTL support.
+-- Stores serialized entities for offline-first access.
+
+CREATE TABLE IF NOT EXISTS entity_cache (
+    cache_key TEXT NOT NULL PRIMARY KEY,
+    json_data TEXT NOT NULL,
+    cached_at INTEGER NOT NULL,
+    expires_at INTEGER NOT NULL
+);
+
+CREATE INDEX IF NOT EXISTS idx_cache_expires ON entity_cache(expires_at);
+
+-- Get a cached entry if not expired
+selectIfValid:
+SELECT json_data
+FROM entity_cache
+WHERE cache_key = ? AND expires_at > ?
+LIMIT 1;
+
+-- Get a cached entry regardless of expiry (for offline fallback)
+selectAny:
+SELECT json_data, cached_at, expires_at
+FROM entity_cache
+WHERE cache_key = ?
+LIMIT 1;
+
+-- Upsert a cache entry
+upsertCache:
+INSERT OR REPLACE INTO entity_cache (cache_key, json_data, cached_at, expires_at)
+VALUES (?, ?, ?, ?);
+
+-- Delete a specific cache entry
+deleteByKey:
+DELETE FROM entity_cache
+WHERE cache_key = ?;
+
+-- Delete all expired entries
+deleteExpired:
+DELETE FROM entity_cache
+WHERE expires_at < ?;
+
+-- Clear all cache entries (for logout)
+deleteAll:
+DELETE FROM entity_cache;
