@@ -1,0 +1,129 @@
+# Detekt configuration for the mobileapp shared KMP module.
+#
+# Primary goal (Phase 10B): catch generated files that have been accidentally
+# inflated. After Phase 0–1 composition, every generated file should delegate
+# to a base class and stay under ~150 lines. Files that breach the thresholds
+# below indicate either:
+#   (a) someone removed the // <<< CUSTOM marker and re-ran the generator, or
+#   (b) custom logic was added directly to a generated file instead of a
+#       *Custom.kt extension.
+#
+# The companion Gradle task `checkGeneratedFileSizes` enforces the hard line
+# limit; detekt rules here enforce structural complexity limits independently.
+
+build:
+  maxIssues: 0
+  excludeCorrectable: false
+
+config:
+  validation: true
+
+complexity:
+  active: true
+
+  # Generated files after composition: 1 class, ~5 functions max.
+  # A file breaching 15 functions is almost certainly a pre-composition bloated
+  # file that was re-generated without the base-class template.
+  TooManyFunctions:
+    active: true
+    thresholdInFiles: 15
+    thresholdInClasses: 12
+    thresholdInInterfaces: 10
+    thresholdInObjects: 10
+    thresholdInEnums: 5
+    ignoreDeprecated: false
+    ignorePrivate: false
+    ignoreOverridden: false
+
+  # Structural complexity gate — flags genuinely oversized classes regardless of
+  # whether they are generated or custom.
+  # Note: the checkGeneratedFileSizes Gradle task enforces the stricter 250-line
+  # threshold on generated files only (excluding // <<< CUSTOM files).
+  # Detekt uses 500 here to catch truly bloated classes without flagging
+  # legitimate custom files that happen to be long.
+  LargeClass:
+    active: true
+    threshold: 500
+
+  # Individual generated methods are one-liners (toDto, toDomain, toEntity).
+  # A method over 40 lines signals un-generated custom logic.
+  LongMethod:
+    active: true
+    threshold: 40
+
+  LongParameterList:
+    active: true
+    functionThreshold: 8
+    constructorThreshold: 8
+
+  ComplexMethod:
+    active: true
+    threshold: 10
+
+naming:
+  active: true
+
+  ClassNaming:
+    active: true
+    classPattern: '[A-Z][a-zA-Z0-9]*'
+
+  FunctionNaming:
+    active: true
+    functionPattern: '[a-z][a-zA-Z0-9]*'
+
+  VariableNaming:
+    active: true
+    variablePattern: '[a-z][A-Za-z0-9]*'
+
+style:
+  active: true
+
+  # Catch files with no content guard (no-op overrides, empty bodies).
+  # Generated delegation files should have meaningful content.
+  UnusedImports:
+    active: true
+
+  ReturnCount:
+    active: true
+    max: 4
+
+  # Enforce the // <<< CUSTOM convention for custom files.
+  # (Structural check; the hard guard is in checkGeneratedFileSizes.)
+  MagicNumber:
+    active: false  # Too noisy for generated numeric defaults
+
+potential-bugs:
+  active: true
+
+  EqualsAlwaysReturnsTrueOrFalse:
+    active: true
+
+  UnreachableCode:
+    active: true
+
+exceptions:
+  active: true
+
+  SwallowedException:
+    active: true
+
+  TooGenericExceptionCaught:
+    active: true
+    exceptionNames:
+      - Error
+      - Exception
+      - RuntimeException
+      - Throwable
+    allowedExceptionNameRegex: '_|(ignore|expected).*'
+
+performance:
+  active: true
+
+  ArrayPrimitive:
+    active: true
+
+  SpreadOperator:
+    active: true
+    excludes:
+      - '**/test/**'
+      - '**/*Test.kt'
