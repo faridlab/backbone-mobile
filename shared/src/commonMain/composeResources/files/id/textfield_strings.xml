@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  TextField String Resources - Indonesian
+  Internationalization (i18n) strings for specialized TextField components
+-->
+<resources>
+    <!-- Common Labels -->
+    <string name="textfield_label_email">Email</string>
+    <string name="textfield_label_phone">Nomor Telepon</string>
+    <string name="textfield_label_password">Kata Sandi</string>
+    <string name="textfield_label_name">Nama</string>
+    <string name="textfield_label_price">Harga</string>
+    <string name="textfield_label_number">Nomor</string>
+    <string name="textfield_label_postal_code">Kode Pos</string>
+    <string name="textfield_label_nik">NIK (KTP)</string>
+    <string name="textfield_label_npwp">NPWP (ID Pajak)</string>
+    <string name="textfield_label_plate">Nomor Polisi</string>
+    <string name="textfield_label_otp">Kode Verifikasi</string>
+    <string name="textfield_label_pin">PIN</string>
+    <string name="textfield_label_url">Situs Web</string>
+    <string name="textfield_label_search">Cari</string>
+
+    <!-- Placeholders -->
+    <string name="textfield_placeholder_email">email@contoh.com</string>
+    <string name="textfield_placeholder_phone">0812 3456 7890</string>
+    <string name="textfield_placeholder_password">Masukkan kata sandi</string>
+    <string name="textfield_placeholder_name">Masukkan nama lengkap</string>
+    <string name="textfield_placeholder_price">0</string>
+    <string name="textfield_placeholder_number">0</string>
+    <string name="textfield_placeholder_postal_code">12345</string>
+    <string name="textfield_placeholder_nik">Masukkan 16 digit NIK</string>
+    <string name="textfield_placeholder_npwp">Masukkan 15 digit NPWP</string>
+    <string name="textfield_placeholder_plate">B 1234 ABC</string>
+    <string name="textfield_placeholder_otp">Masukkan 6 digit kode</string>
+    <string name="textfield_placeholder_pin">Masukkan 4 digit PIN</string>
+    <string name="textfield_placeholder_url">https://contoh.com</string>
+    <string name="textfield_placeholder_search">Cari...</string>
+
+    <!-- Validation Error Messages -->
+    <string name="textfield_error_required">Kolom ini wajib diisi</string>
+    <string name="textfield_error_email_required">Email wajib diisi</string>
+    <string name="textfield_error_email_invalid">Format email tidak valid</string>
+    <string name="textfield_error_phone_required">Nomor telepon wajib diisi</string>
+    <string name="textfield_error_phone_invalid">Format nomor telepon tidak valid</string>
+    <string name="textfield_error_password_required">Kata sandi wajib diisi</string>
+    <string name="textfield_error_password_short">Kata sandi minimal 6 karakter</string>
+    <string name="textfield_error_password_weak">Kata sandi terlalu lemah</string>
+    <string name="textfield_error_name_required">Nama wajib diisi</string>
+    <string name="textfield_error_name_short">Nama minimal %d karakter</string>
+    <string name="textfield_error_name_invalid">Nama mengandung karakter tidak valid</string>
+    <string name="textfield_error_postal_code_invalid">Kode pos harus 5 digit</string>
+    <string name="textfield_error_price_required">Jumlah wajib diisi</string>
+    <string name="textfield_error_price_invalid">Jumlah tidak valid</string>
+    <string name="textfield_error_url_invalid">Format URL tidak valid</string>
+    <string name="textfield_error_nik_invalid">Format NIK tidak valid</string>
+    <string name="textfield_error_npwp_invalid">Format NPWP tidak valid</string>
+    <string name="textfield_error_plate_invalid">Format plat nomor tidak valid</string>
+    <string name="textfield_error_otp_invalid">Kode verifikasi tidak valid</string>
+    <string name="textfield_error_pin_invalid">PIN harus 4 digit</string>
+
+    <!-- Content Descriptions (Accessibility) -->
+    <string name="textfield_cd_email">Kolom input email</string>
+    <string name="textfield_cd_phone">Kolom input nomor telepon</string>
+    <string name="textfield_cd_password">Kolom input kata sandi</string>
+    <string name="textfield_cd_show_password">Tampilkan kata sandi</string>
+    <string name="textfield_cd_hide_password">Sembunyikan kata sandi</string>
+    <string name="textfield_cd_name">Kolom input nama</string>
+    <string name="textfield_cd_price">Kolom input harga</string>
+    <string name="textfield_cd_decrease">Kurangi nilai</string>
+    <string name="textfield_cd_increase">Tambah nilai</string>
+    <string name="textfield_cd_clear">Hapus input</string>
+    <string name="textfield_cd_search">Kolom pencarian</string>
+
+    <!-- Helper Text -->
+    <string name="textfield_helper_phone_format">Format: +62 812 3456 7890</string>
+    <string name="textfield_helper_plate_format">Format: B 1234 ABC atau AB 1234 XY</string>
+    <string name="textfield_helper_nik_format">16 digit: PPLLSSDDMMYYXXXX</string>
+    <string name="textfield_helper_npwp_format">15 digit: XX.XXX.XXX.X-XXX.XXX</string>
+    <string name="textfield_helper_otp_resend">Kirim ulang kode dalam %ds</string>
+
+    <!-- Button Labels -->
+    <string name="textfield_button_resend">Kirim Ulang Kode</string>
+    <string name="textfield_button_submit">Kirim</string>
+    <string name="textfield_button_verify">Verifikasi</string>
+
+    <!-- Suggestions -->
+    <string name="textfield_suggestion_email">Maksud Anda %s?</string>
+    <string name="textfield_suggestion_phone">Format sebagai +62%s?</string>
+    <string name="textfield_suggestion_url">Tambahkan prefix https://?</string>
+</resources>

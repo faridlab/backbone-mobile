@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  TextField String Resources
+  Internationalization (i18n) strings for specialized TextField components
+-->
+<resources>
+    <!-- Common Labels -->
+    <string name="textfield_label_email">Email</string>
+    <string name="textfield_label_phone">Phone Number</string>
+    <string name="textfield_label_password">Password</string>
+    <string name="textfield_label_name">Name</string>
+    <string name="textfield_label_price">Price</string>
+    <string name="textfield_label_number">Number</string>
+    <string name="textfield_label_postal_code">Postal Code</string>
+    <string name="textfield_label_nik">NIK (KTP)</string>
+    <string name="textfield_label_npwp">NPWP (Tax ID)</string>
+    <string name="textfield_label_plate">License Plate</string>
+    <string name="textfield_label_otp">Verification Code</string>
+    <string name="textfield_label_pin">PIN</string>
+    <string name="textfield_label_url">Website URL</string>
+    <string name="textfield_label_search">Search</string>
+
+    <!-- Placeholders -->
+    <string name="textfield_placeholder_email">email@example.com</string>
+    <string name="textfield_placeholder_phone">0812 3456 7890</string>
+    <string name="textfield_placeholder_password">Enter password</string>
+    <string name="textfield_placeholder_name">Enter full name</string>
+    <string name="textfield_placeholder_price">0</string>
+    <string name="textfield_placeholder_number">0</string>
+    <string name="textfield_placeholder_postal_code">12345</string>
+    <string name="textfield_placeholder_nik">Enter 16-digit NIK number</string>
+    <string name="textfield_placeholder_npwp">Enter 15-digit NPWP number</string>
+    <string name="textfield_placeholder_plate">B 1234 ABC</string>
+    <string name="textfield_placeholder_otp">Enter 6-digit code</string>
+    <string name="textfield_placeholder_pin">Enter 4-digit PIN</string>
+    <string name="textfield_placeholder_url">https://example.com</string>
+    <string name="textfield_placeholder_search">Search...</string>
+
+    <!-- Validation Error Messages -->
+    <string name="textfield_error_required">This field is required</string>
+    <string name="textfield_error_email_required">Email is required</string>
+    <string name="textfield_error_email_invalid">Invalid email format</string>
+    <string name="textfield_error_phone_required">Phone number is required</string>
+    <string name="textfield_error_phone_invalid">Invalid phone number format</string>
+    <string name="textfield_error_password_required">Password is required</string>
+    <string name="textfield_error_password_short">Password must be at least 6 characters</string>
+    <string name="textfield_error_password_weak">Password is too weak</string>
+    <string name="textfield_error_name_required">Name is required</string>
+    <string name="textfield_error_name_short">Name must be at least %d characters</string>
+    <string name="textfield_error_name_invalid">Name contains invalid characters</string>
+    <string name="textfield_error_postal_code_invalid">Postal code must be 5 digits</string>
+    <string name="textfield_error_price_required">Amount is required</string>
+    <string name="textfield_error_price_invalid">Invalid amount</string>
+    <string name="textfield_error_url_invalid">Invalid URL format</string>
+    <string name="textfield_error_nik_invalid">Invalid NIK format</string>
+    <string name="textfield_error_npwp_invalid">Invalid NPWP format</string>
+    <string name="textfield_error_plate_invalid">Invalid plate format</string>
+    <string name="textfield_error_otp_invalid">Invalid verification code</string>
+    <string name="textfield_error_pin_invalid">PIN must be 4 digits</string>
+
+    <!-- Content Descriptions (Accessibility) -->
+    <string name="textfield_cd_email">Email input field</string>
+    <string name="textfield_cd_phone">Phone number input field</string>
+    <string name="textfield_cd_password">Password input field</string>
+    <string name="textfield_cd_show_password">Show password</string>
+    <string name="textfield_cd_hide_password">Hide password</string>
+    <string name="textfield_cd_name">Name input field</string>
+    <string name="textfield_cd_price">Price input field</string>
+    <string name="textfield_cd_decrease">Decrease value</string>
+    <string name="textfield_cd_increase">Increase value</string>
+    <string name="textfield_cd_clear">Clear input</string>
+    <string name="textfield_cd_search">Search field</string>
+
+    <!-- Helper Text -->
+    <string name="textfield_helper_phone_format">Format: +62 812 3456 7890</string>
+    <string name="textfield_helper_plate_format">Format: B 1234 ABC or AB 1234 XY</string>
+    <string name="textfield_helper_nik_format">16 digits: PPLLSSDDMMYYXXXX</string>
+    <string name="textfield_helper_npwp_format">15 digits: XX.XXX.XXX.X-XXX.XXX</string>
+    <string name="textfield_helper_otp_resend">Resend code in %ds</string>
+
+    <!-- Button Labels -->
+    <string name="textfield_button_resend">Resend Code</string>
+    <string name="textfield_button_submit">Submit</string>
+    <string name="textfield_button_verify">Verify</string>
+
+    <!-- Suggestions -->
+    <string name="textfield_suggestion_email">Did you mean %s?</string>
+    <string name="textfield_suggestion_phone">Format as +62%s?</string>
+    <string name="textfield_suggestion_url">Add https:// prefix?</string>
+</resources>
