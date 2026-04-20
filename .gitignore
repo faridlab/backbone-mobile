@@ -7,3 +7,4 @@ shared/build/
 android/build/
 */build/
 android/google-services.json
+.claude/
