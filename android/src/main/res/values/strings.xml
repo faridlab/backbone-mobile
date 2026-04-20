@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Pheromone</string>
+
+    <!-- Authentication -->
+    <string name="auth_login">Login</string>
+    <string name="auth_logout">Logout</string>
+    <string name="auth_email">Email</string>
+    <string name="auth_password">Password</string>
+    <string name="auth_confirm_password">Confirm Password</string>
+    <string name="auth_forgot_password">Forgot Password?</string>
+    <string name="auth_sign_in_google">Sign in with Google</string>
+    <string name="auth_sign_in_apple">Sign in with Apple</string>
+    <string name="auth_no_account">Don\'t have an account?</string>
+    <string name="auth_sign_up">Sign up</string>
+    <string name="auth_already_have_account">Already have an account?</string>
+
+    <!-- Common -->
+    <string name="common_loading">Loading…</string>
+    <string name="common_error">An error occurred</string>
+    <string name="common_retry">Retry</string>
+    <string name="common_cancel">Cancel</string>
+    <string name="common_save">Save</string>
+    <string name="common_delete">Delete</string>
+    <string name="common_edit">Edit</string>
+    <string name="common_create">Create</string>
+    <string name="common_update">Update</string>
+    <string name="common_search">Search</string>
+    <string name="common_filter">Filter</string>
+    <string name="common_sort">Sort</string>
+    <string name="common_refresh">Refresh</string>
+    <string name="common_no_data">No data available</string>
+    <string name="common_offline">You are offline</string>
+    <string name="common_syncing">Syncing…</string>
+    <string name="common_synced">Synced</string>
+
+    <!-- Errors -->
+    <string name="error_network">Network error. Please check your connection.</string>
+    <string name="error_server">Server error. Please try again later.</string>
+    <string name="error_unauthorized">Unauthorized. Please login again.</string>
+    <string name="error_validation">Please check your input.</string>
+    <string name="error_unknown">An unknown error occurred.</string>
+
+    <!-- Users -->
+    <string name="users_title">Users</string>
+    <string name="users_detail_title">User Details</string>
+    <string name="users_create_title">Create User</string>
+    <string name="users_edit_title">Edit User</string>
+    <string name="users_name">Name</string>
+    <string name="users_email">Email</string>
+    <string name="users_role">Role</string>
+    <string name="users_status">Status</string>
+    <string name="users_active">Active</string>
+    <string name="users_inactive">Inactive</string>
+</resources>
