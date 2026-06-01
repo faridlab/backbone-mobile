@@ -1,16 +1,16 @@
-package id.startapp.pheromone
+package id.startapp
 
 import android.app.Application
-import id.startapp.pheromone.infrastructure.di.initKoin
-import id.startapp.pheromone.infrastructure.monitoring.Analytics
-import id.startapp.pheromone.infrastructure.monitoring.CrashReporter
-import id.startapp.pheromone.infrastructure.monitoring.PerformanceMonitor
-import id.startapp.pheromone.infrastructure.network.BuildConfig
-import id.startapp.pheromone.infrastructure.network.ConnectivityMonitor
-import id.startapp.pheromone.infrastructure.network.HttpClientFactory
-import id.startapp.pheromone.infrastructure.push.PushNotificationManager
-import id.startapp.pheromone.infrastructure.sync.BackgroundSyncManager
-import id.startapp.pheromone.infrastructure.sync.OutboxManager
+import id.startapp.infrastructure.di.initKoin
+import id.startapp.infrastructure.monitoring.Analytics
+import id.startapp.infrastructure.monitoring.CrashReporter
+import id.startapp.infrastructure.monitoring.PerformanceMonitor
+import id.startapp.infrastructure.network.BuildConfig
+import id.startapp.infrastructure.network.ConnectivityMonitor
+import id.startapp.infrastructure.network.HttpClientFactory
+import id.startapp.infrastructure.push.PushNotificationManager
+import id.startapp.infrastructure.sync.BackgroundSyncManager
+import id.startapp.infrastructure.sync.OutboxManager
 import kotlinx.coroutines.runBlocking
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger

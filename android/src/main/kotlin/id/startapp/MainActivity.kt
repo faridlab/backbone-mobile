@@ -1,4 +1,4 @@
-package id.startapp.pheromone
+package id.startapp
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -11,7 +11,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import id.startapp.pheromone.presentation.ui.theme.AppTheme
+import id.startapp.presentation.ui.theme.AppTheme
 
 class MainActivity : ComponentActivity() {
 
@@ -30,7 +30,7 @@ class MainActivity : ComponentActivity() {
                         contentAlignment = Alignment.Center,
                     ) {
                         Text(
-                            text = "Pheromone",
+                            text = "Backbone",
                             style = MaterialTheme.typography.headlineLarge,
                         )
                     }
