@@ -13,7 +13,7 @@ Write tests in `commonTest` whenever possible — they run on all targets and ca
 ## Layout
 
 ```
-shared/src/commonTest/kotlin/id/startapp/pheromone/
+shared/src/commonTest/kotlin/id/startapp/
 ├── application/
 │   └── usecases/auth/       …UseCaseTest.kt
 ├── core/

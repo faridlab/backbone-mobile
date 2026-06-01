@@ -1,10 +1,10 @@
 # Infrastructure
 
-What lives under `shared/src/commonMain/kotlin/id/startapp/pheromone/infrastructure/` and how to use it. Everything here is framework-level — modules consume it; they do not replace it.
+What lives under `shared/src/commonMain/kotlin/id/startapp/infrastructure/` and how to use it. Everything here is framework-level — modules consume it; they do not replace it.
 
 ## Koin modules
 
-All DI lives in [infrastructure/di/DiModule.kt](../shared/src/commonMain/kotlin/id/startapp/pheromone/infrastructure/di/DiModule.kt). The entry point is `initKoin`:
+All DI lives in [infrastructure/di/DiModule.kt](../shared/src/commonMain/kotlin/id/startapp/infrastructure/di/DiModule.kt). The entry point is `initKoin`:
 
 ```kotlin
 fun initKoin(config: KoinAppDeclaration = {}) {
@@ -29,7 +29,7 @@ Your business module adds its own module and passes it via `initKoin { modules(c
 
 ## HTTP
 
-[`HttpClientFactory`](../shared/src/commonMain/kotlin/id/startapp/pheromone/infrastructure/network/HttpClientFactory.kt) creates Ktor clients. Two variants:
+[`HttpClientFactory`](../shared/src/commonMain/kotlin/id/startapp/infrastructure/network/HttpClientFactory.kt) creates Ktor clients. Two variants:
 
 - **Unauthenticated** (`get(named("unauthenticated"))`) — used only by the refresh-token flow to avoid recursion.
 - **Authenticated** (`get(named("authenticated"))`) — installs a token interceptor that attaches `Authorization: Bearer …`, retries once on 401 by invoking `TokenRefreshProvider`, and broadcasts session-invalid events via `AppEventBus`.
@@ -50,7 +50,7 @@ SQLDelight is configured in `shared/build.gradle.kts`. Core schema:
 - `SyncConflictQueries.sq` — version mismatches
 - `SyncHistoryQueries.sq` — audit trail
 
-DAOs in [infrastructure/database/dao/](../shared/src/commonMain/kotlin/id/startapp/pheromone/infrastructure/database/dao/) wrap the generated `AppDatabase`. Add your own DAOs alongside.
+DAOs in [infrastructure/database/dao/](../shared/src/commonMain/kotlin/id/startapp/infrastructure/database/dao/) wrap the generated `AppDatabase`. Add your own DAOs alongside.
 
 `DatabaseManager` holds the driver as a singleton. The driver is injected by `platformModule` (`AndroidSqliteDriver` on Android, `NativeSqliteDriver` on iOS).
 
@@ -98,9 +98,9 @@ All three are called from `MobileApplication.onCreate` / `initKoinIOS`. Leaving 
 
 1. Drop `google-services.json` into `android/`.
 2. Uncomment the `google-services` plugin and `firebase-messaging` dep in `android/build.gradle.kts`.
-3. Uncomment the `<service>` entry for `PheromoneFirebaseMessagingService` in `AndroidManifest.xml` — and restore the service file (deleted in the skeleton). A minimal implementation is:
+3. Uncomment the `<service>` entry for `BackboneFirebaseMessagingService` in `AndroidManifest.xml` — and restore the service file (deleted in the skeleton). A minimal implementation is:
    ```kotlin
-   class PheromoneFirebaseMessagingService : FirebaseMessagingService() {
+   class BackboneFirebaseMessagingService : FirebaseMessagingService() {
        override fun onNewToken(token: String) {
            PushNotificationManager.onTokenRefreshed(token)
        }
@@ -126,7 +126,7 @@ val flags: FeatureFlagManager = koinInject()
 if (flags.isEnabled(FeatureFlag.NEW_CHECKOUT)) { … }
 ```
 
-Define flags in [`FeatureFlag.kt`](../shared/src/commonMain/kotlin/id/startapp/pheromone/infrastructure/featureflags/FeatureFlag.kt).
+Define flags in [`FeatureFlag.kt`](../shared/src/commonMain/kotlin/id/startapp/infrastructure/featureflags/FeatureFlag.kt).
 
 ## Media
 

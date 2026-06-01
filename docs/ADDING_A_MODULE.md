@@ -9,7 +9,7 @@ The running example here is a `catalog` module for product catalog browsing. Rep
 Each module adds a subtree under every relevant layer. Keep the leaf directory name (`catalog` below) identical across layers so it's grep-able.
 
 ```
-id.startapp.pheromone
+id.startapp
 ├── domain/
 │   └── catalog/
 │       ├── entity/
@@ -44,7 +44,7 @@ id.startapp.pheromone
 SQLDelight schemas for the module go under:
 
 ```
-shared/src/commonMain/sqldelight/id/startapp/pheromone/catalog/
+shared/src/commonMain/sqldelight/id/startapp/catalog/
 ├── ProductQueries.sq
 └── CategoryQueries.sq
 ```
@@ -53,7 +53,7 @@ shared/src/commonMain/sqldelight/id/startapp/pheromone/catalog/
 
 ```kotlin
 // domain/catalog/entity/Product.kt
-package id.startapp.pheromone.domain.catalog.entity
+package id.startapp.domain.catalog.entity
 
 data class Product(
     val id: String,
@@ -65,10 +65,10 @@ data class Product(
 
 ```kotlin
 // domain/catalog/repository/CatalogRepository.kt
-package id.startapp.pheromone.domain.catalog.repository
+package id.startapp.domain.catalog.repository
 
-import id.startapp.pheromone.domain.catalog.entity.Product
-import id.startapp.pheromone.domain.types.Result
+import id.startapp.domain.catalog.entity.Product
+import id.startapp.domain.types.Result
 
 interface CatalogRepository {
     suspend fun list(limit: Int = 50, cursor: String? = null): Result<List<Product>>
@@ -85,11 +85,11 @@ Rules:
 
 ```kotlin
 // application/usecases/catalog/ListProductsUseCase.kt
-package id.startapp.pheromone.application.usecases.catalog
+package id.startapp.application.usecases.catalog
 
-import id.startapp.pheromone.domain.catalog.entity.Product
-import id.startapp.pheromone.domain.catalog.repository.CatalogRepository
-import id.startapp.pheromone.domain.types.Result
+import id.startapp.domain.catalog.entity.Product
+import id.startapp.domain.catalog.repository.CatalogRepository
+import id.startapp.domain.types.Result
 
 class ListProductsUseCase(private val repo: CatalogRepository) {
     suspend operator fun invoke(limit: Int = 50): Result<List<Product>> =
@@ -105,10 +105,10 @@ HTTP client uses the shared authenticated `HttpClient`:
 
 ```kotlin
 // infrastructure/catalog/api/CatalogApiClient.kt
-package id.startapp.pheromone.infrastructure.catalog.api
+package id.startapp.infrastructure.catalog.api
 
-import id.startapp.pheromone.core.api.BaseCrudApiClient
-import id.startapp.pheromone.infrastructure.catalog.api.dto.ProductDto
+import id.startapp.core.api.BaseCrudApiClient
+import id.startapp.infrastructure.catalog.api.dto.ProductDto
 import io.ktor.client.HttpClient
 
 class CatalogApiClient(
@@ -140,12 +140,12 @@ Create a Koin module per business module and pass it to `initKoin`:
 
 ```kotlin
 // infrastructure/catalog/CatalogModule.kt
-package id.startapp.pheromone.infrastructure.catalog
+package id.startapp.infrastructure.catalog
 
-import id.startapp.pheromone.domain.catalog.repository.CatalogRepository
-import id.startapp.pheromone.infrastructure.catalog.api.CatalogApiClient
-import id.startapp.pheromone.infrastructure.catalog.repository.CatalogRepositoryImpl
-import id.startapp.pheromone.infrastructure.network.BuildConfig
+import id.startapp.domain.catalog.repository.CatalogRepository
+import id.startapp.infrastructure.catalog.api.CatalogApiClient
+import id.startapp.infrastructure.catalog.repository.CatalogRepositoryImpl
+import id.startapp.infrastructure.network.BuildConfig
 import org.koin.core.module.dsl.factoryOf
 import org.koin.core.qualifier.named
 import org.koin.dsl.module

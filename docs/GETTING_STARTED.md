@@ -15,8 +15,8 @@ macOS with Apple Silicon is the reference environment; Linux and Intel Macs work
 ## First-time setup
 
 ```bash
-git clone <your-fork>/pheromone
-cd pheromone
+git clone <your-fork>/backbone
+cd backbone
 
 # 1. Point Gradle at your JDK 17 (only if auto-detection fails):
 #    edit gradle.properties and uncomment org.gradle.java.home
@@ -46,7 +46,7 @@ EOF
 # Or let Android Studio's Run button do both (faster incremental builds)
 ```
 
-The APK output is `android/build/outputs/apk/debug/android-debug.apk`. The debug variant has `applicationId = id.startapp.pheromone.debug` so it coexists with a release build.
+The APK output is `android/build/outputs/apk/debug/android-debug.apk`. The debug variant has `applicationId = id.startapp.debug` so it coexists with a release build.
 
 ### Emulator host loopback
 

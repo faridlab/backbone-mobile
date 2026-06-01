@@ -1,10 +1,10 @@
-# Pheromone
+# Backbone
 
-Minimal Pheromone KMP mobile application skeleton.
+Minimal Backbone KMP mobile application skeleton.
 
 A runnable Kotlin Multiplatform starter for mobile (Android + iOS) with an offline-first
 infrastructure, auth framework, and sync pipeline. Add business modules to it when
-the `metaphor add module ... --to pheromone` generator lands (or by hand).
+the `metaphor add module ... --to backbone` generator lands (or by hand).
 
 ## Docs
 
@@ -40,7 +40,7 @@ the `metaphor add module ... --to pheromone` generator lands (or by hand).
   - Monitoring (`CrashReporter`, `Analytics`, `PerformanceMonitor`) as no-op stubs
   - Connectivity monitor, feature flags, crypto/cache encryptor
 - **Presentation**: theme + a reusable Compose component library (inputs, cards,
-  charts, feedback, media, tree, etc.). Entry screen is a bare "Pheromone" label.
+  charts, feedback, media, tree, etc.). Entry screen is a bare "Backbone" label.
 - **Config**: Detekt rules, gradle wrapper 8.13, Kotlin 2.x, Compose Multiplatform
 
 ## What is NOT in the skeleton
@@ -67,13 +67,13 @@ the `metaphor add module ... --to pheromone` generator lands (or by hand).
 
 ## Package & naming
 
-- Root package: `id.startapp.pheromone.*`
-- Gradle root project: `pheromone`
-- Android `applicationId`: `id.startapp.pheromone` (debug suffix `.debug`)
-- Deep-link scheme: `mobileapp` (kept generic from upstream — rename to `pheromone`
+- Root package: `id.startapp.*`
+- Gradle root project: `backbone`
+- Android `applicationId`: `id.startapp` (debug suffix `.debug`)
+- Deep-link scheme: `mobileapp` (kept generic from upstream — rename to `backbone`
   in `AndroidManifest.xml`, `Info.plist`, and `AppDelegate.swift` if you prefer)
 
-Modules you add should use `id.startapp.pheromone.<module>.*` and plug into DI
+Modules you add should use `id.startapp.<module>.*` and plug into DI
 through new Koin modules passed to `initKoin { modules(...) }`.
 
 ## Development

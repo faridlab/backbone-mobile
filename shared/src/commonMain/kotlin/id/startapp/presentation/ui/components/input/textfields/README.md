@@ -1,6 +1,6 @@
-# Pheromone TextField Components
+# Backbone TextField Components
 
-A comprehensive library of specialized TextField components for the Pheromone mobile app.
+A comprehensive library of specialized TextField components for the Backbone mobile app.
 
 ## 📁 File Structure
 
@@ -34,7 +34,7 @@ textfields/
 ### Basic Usage
 
 ```kotlin
-import id.startapp.pheromone.presentation.ui.components.input.textfields.*
+import id.startapp.presentation.ui.components.input.textfields.*
 
 @Composable
 fun MyForm() {
@@ -60,7 +60,7 @@ fun MyForm() {
 ### Domain-Specific TextFields
 
 ```kotlin
-import id.startapp.pheromone.presentation.ui.components.input.textfields.domain.*
+import id.startapp.presentation.ui.components.input.textfields.domain.*
 
 @Composable
 fun OrderForm() {
@@ -114,7 +114,7 @@ fun OrderForm() {
 | `AddressTextField` | Address | Multiline, 500 chars |
 | `DescriptionTextField` | Description | Long-form, 1000 chars |
 
-### Domain-Specific TextFields (Pheromone)
+### Domain-Specific TextFields (Backbone)
 
 | Component | Purpose | Key Features |
 |-----------|---------|--------------|
@@ -245,11 +245,11 @@ QuantityIntTextField(
 
 ```kotlin
 // Import individual components
-import id.startapp.pheromone.presentation.ui.components.input.textfields.EmailTextField
+import id.startapp.presentation.ui.components.input.textfields.EmailTextField
 
 // Or use wildcard
-import id.startapp.pheromone.presentation.ui.components.input.textfields.*
-import id.startapp.pheromone.presentation.ui.components.input.textfields.domain.*
+import id.startapp.presentation.ui.components.input.textfields.*
+import id.startapp.presentation.ui.components.input.textfields.domain.*
 ```
 
 ### Validation Not Working

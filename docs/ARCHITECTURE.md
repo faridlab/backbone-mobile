@@ -1,6 +1,6 @@
 # Architecture
 
-Pheromone follows DDD + Clean Architecture on Kotlin Multiplatform, structured as a modular monolith. It mirrors the backbone (Rust) architecture on the mobile side: every business module owns its own domain, bounded contexts do not leak entities, and the infrastructure layer is shared framework code.
+Backbone follows DDD + Clean Architecture on Kotlin Multiplatform, structured as a modular monolith. It mirrors the backbone (Rust) architecture on the mobile side: every business module owns its own domain, bounded contexts do not leak entities, and the infrastructure layer is shared framework code.
 
 ## Layers
 
@@ -23,7 +23,7 @@ The arrows only point down: `presentation` depends on `application`, `applicatio
 ## Package layout
 
 ```
-id.startapp.pheromone
+id.startapp
 ├── core/                  framework primitives
 │   ├── api/               BaseCrudApiClient — paginated CRUD over HTTP
 │   ├── error/             sealed errors
@@ -72,7 +72,7 @@ id.startapp.pheromone
     └── viewmodel/         BaseViewModel lives here
 ```
 
-Android-only code lives under `shared/src/androidMain/kotlin/id/startapp/pheromone/…`, iOS-only under `shared/src/iosMain/kotlin/…`. The KMP `expect/actual` contracts are declared in `commonMain` and implemented per platform.
+Android-only code lives under `shared/src/androidMain/kotlin/id/startapp/…`, iOS-only under `shared/src/iosMain/kotlin/…`. The KMP `expect/actual` contracts are declared in `commonMain` and implemented per platform.
 
 ## Source sets
 
