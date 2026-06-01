@@ -1,4 +1,4 @@
-package id.startapp.pheromone.presentation.ui.extensions
+package id.startapp.presentation.ui.extensions
 
 import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.runtime.Composable

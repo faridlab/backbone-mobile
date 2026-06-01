@@ -1,6 +1,6 @@
-package id.startapp.pheromone.presentation.util
+package id.startapp.presentation.util
 
-import id.startapp.pheromone.domain.types.NetworkError
+import id.startapp.domain.types.NetworkError
 
 /**
  * Shared extension to extract a user-friendly message from NetworkError.

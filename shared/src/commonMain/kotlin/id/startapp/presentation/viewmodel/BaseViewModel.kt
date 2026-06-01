@@ -1,4 +1,4 @@
-package id.startapp.pheromone.presentation.viewmodel
+package id.startapp.presentation.viewmodel
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect

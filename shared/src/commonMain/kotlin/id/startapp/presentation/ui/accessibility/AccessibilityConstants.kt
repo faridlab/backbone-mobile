@@ -1,4 +1,4 @@
-package id.startapp.pheromone.presentation.ui.accessibility
+package id.startapp.presentation.ui.accessibility
 
 /**
  * Test tag constants for UI automation and accessibility testing.

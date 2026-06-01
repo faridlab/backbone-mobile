@@ -1,4 +1,4 @@
-package id.startapp.pheromone.presentation.util.printing
+package id.startapp.presentation.util.printing
 
 /**
  * Platform-specific Bluetooth printer manager.

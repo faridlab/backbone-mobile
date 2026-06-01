@@ -1,8 +1,8 @@
-package id.startapp.pheromone.presentation.util.printing
+package id.startapp.presentation.util.printing
 
-import id.startapp.pheromone.presentation.util.NumberFormatUtils
-import id.startapp.pheromone.presentation.util.ReceiptData
-import id.startapp.pheromone.presentation.util.ReceiptItem
+import id.startapp.presentation.util.NumberFormatUtils
+import id.startapp.presentation.util.ReceiptData
+import id.startapp.presentation.util.ReceiptItem
 
 /**
  * ESC/POS command builder for thermal receipt printers.
@@ -162,7 +162,7 @@ class EscPosBuilder(private val charsPerLine: Int = 32) {
         alignCenter()
         boldOn()
         doubleSize()
-        text("Pheromone")
+        text("Backbone")
         normalSize()
         boldOff()
         text(outletName)
@@ -241,7 +241,7 @@ class EscPosBuilder(private val charsPerLine: Int = 32) {
         boldOn()
         text("Terima kasih!")
         boldOff()
-        text("Pheromone")
+        text("Backbone")
         cut()
     }
 

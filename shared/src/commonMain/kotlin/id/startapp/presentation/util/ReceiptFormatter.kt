@@ -1,4 +1,4 @@
-package id.startapp.pheromone.presentation.util
+package id.startapp.presentation.util
 
 /**
  * Formats order data into a plain-text receipt string for sharing and printing.
@@ -50,7 +50,7 @@ object ReceiptFormatter {
 
         // Header
         sb.appendLine(sep)
-        sb.appendLine("    Pheromone")
+        sb.appendLine("    Backbone")
         sb.appendLine("    $outletName")
         if (!outletAddress.isNullOrBlank()) {
             sb.appendLine("    $outletAddress")
@@ -108,7 +108,7 @@ object ReceiptFormatter {
         }
         sb.appendLine()
         sb.appendLine("Terima kasih!")
-        sb.appendLine("Pheromone")
+        sb.appendLine("Backbone")
 
         return sb.toString()
     }
@@ -164,7 +164,7 @@ data class ReceiptItem(
  * All data needed to render a receipt (text or ESC/POS).
  *
  * Single source of truth consumed by both [ReceiptFormatter] and
- * [id.startapp.pheromone.presentation.util.printing.EscPosBuilder].
+ * [id.startapp.presentation.util.printing.EscPosBuilder].
  */
 data class ReceiptData(
     val orderNumber: String,

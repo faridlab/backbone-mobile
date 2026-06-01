@@ -1,4 +1,4 @@
-package id.startapp.pheromone.presentation.util
+package id.startapp.presentation.util
 
 import kotlinx.datetime.Instant
 import kotlinx.datetime.LocalDateTime

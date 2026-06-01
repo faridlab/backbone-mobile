@@ -1,4 +1,4 @@
-package id.startapp.pheromone.presentation.util
+package id.startapp.presentation.util
 
 /**
  * Platform-specific image compressor.
