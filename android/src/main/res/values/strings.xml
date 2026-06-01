@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Pheromone</string>
+    <string name="app_name">Backbone</string>
 
     <!-- Authentication -->
     <string name="auth_login">Login</string>

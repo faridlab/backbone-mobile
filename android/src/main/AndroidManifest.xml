@@ -68,7 +68,7 @@
 
         <!-- Firebase Cloud Messaging service — re-enable when you add google-services.json
         <service
-            android:name=".PheromoneFirebaseMessagingService"
+            android:name=".BackboneFirebaseMessagingService"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
