@@ -1,6 +1,6 @@
-package id.startapp.pheromone.infrastructure.repository
+package id.startapp.infrastructure.repository
 
-import id.startapp.pheromone.domain.auth.entity.User
+import id.startapp.domain.auth.entity.User
 import kotlinx.coroutines.test.runTest
 import kotlin.test.Test
 import kotlin.test.assertEquals

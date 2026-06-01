@@ -1,12 +1,12 @@
-package id.startapp.pheromone.application.usecases.auth
+package id.startapp.application.usecases.auth
 
-import id.startapp.pheromone.domain.auth.entity.AuthToken
-import id.startapp.pheromone.domain.auth.entity.RegisterResult
-import id.startapp.pheromone.domain.auth.entity.User
-import id.startapp.pheromone.domain.auth.entity.VerifyEmailResult
-import id.startapp.pheromone.domain.auth.repository.AuthRepository
-import id.startapp.pheromone.domain.types.NetworkError
-import id.startapp.pheromone.domain.types.Result
+import id.startapp.domain.auth.entity.AuthToken
+import id.startapp.domain.auth.entity.RegisterResult
+import id.startapp.domain.auth.entity.User
+import id.startapp.domain.auth.entity.VerifyEmailResult
+import id.startapp.domain.auth.repository.AuthRepository
+import id.startapp.domain.types.NetworkError
+import id.startapp.domain.types.Result
 
 /**
  * Fake AuthRepository for unit testing use cases.

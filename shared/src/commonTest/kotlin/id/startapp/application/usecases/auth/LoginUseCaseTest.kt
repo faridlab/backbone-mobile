@@ -1,9 +1,9 @@
-package id.startapp.pheromone.application.usecases.auth
+package id.startapp.application.usecases.auth
 
-import id.startapp.pheromone.application.security.RateLimiter
-import id.startapp.pheromone.domain.auth.entity.AuthToken
-import id.startapp.pheromone.domain.types.NetworkError
-import id.startapp.pheromone.domain.types.Result
+import id.startapp.application.security.RateLimiter
+import id.startapp.domain.auth.entity.AuthToken
+import id.startapp.domain.types.NetworkError
+import id.startapp.domain.types.Result
 import kotlinx.coroutines.test.runTest
 import kotlin.test.Test
 import kotlin.test.assertEquals

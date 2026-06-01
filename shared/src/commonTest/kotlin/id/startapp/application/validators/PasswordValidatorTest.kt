@@ -1,6 +1,6 @@
-package id.startapp.pheromone.application.validators
+package id.startapp.application.validators
 
-import id.startapp.pheromone.application.utils.formatDuration
+import id.startapp.application.utils.formatDuration
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFalse

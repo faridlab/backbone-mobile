@@ -1,9 +1,9 @@
-package id.startapp.pheromone.core.test
+package id.startapp.core.test
 
-import id.startapp.pheromone.presentation.viewmodel.BaseViewModel
-import id.startapp.pheromone.presentation.viewmodel.UiEffect
-import id.startapp.pheromone.presentation.viewmodel.UiIntent
-import id.startapp.pheromone.presentation.viewmodel.UiState
+import id.startapp.presentation.viewmodel.BaseViewModel
+import id.startapp.presentation.viewmodel.UiEffect
+import id.startapp.presentation.viewmodel.UiIntent
+import id.startapp.presentation.viewmodel.UiState
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.launch

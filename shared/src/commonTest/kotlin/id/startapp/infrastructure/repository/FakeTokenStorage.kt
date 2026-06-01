@@ -1,7 +1,7 @@
-package id.startapp.pheromone.infrastructure.repository
+package id.startapp.infrastructure.repository
 
-import id.startapp.pheromone.domain.auth.entity.AuthToken
-import id.startapp.pheromone.infrastructure.storage.TokenStorage
+import id.startapp.domain.auth.entity.AuthToken
+import id.startapp.infrastructure.storage.TokenStorage
 
 /**
  * In-memory implementation of TokenStorage for testing.

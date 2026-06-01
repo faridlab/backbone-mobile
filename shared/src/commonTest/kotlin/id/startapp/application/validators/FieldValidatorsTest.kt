@@ -1,4 +1,4 @@
-package id.startapp.pheromone.application.validators
+package id.startapp.application.validators
 
 import kotlin.test.Test
 import kotlin.test.assertEquals

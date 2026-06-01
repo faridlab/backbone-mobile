@@ -1,9 +1,9 @@
-package id.startapp.pheromone.core.test
+package id.startapp.core.test
 
-import id.startapp.pheromone.core.usecase.CrudRepository
-import id.startapp.pheromone.domain.types.NetworkError
-import id.startapp.pheromone.domain.types.Result
-import id.startapp.pheromone.infrastructure.pagination.PaginatedApiResponse
+import id.startapp.core.usecase.CrudRepository
+import id.startapp.domain.types.NetworkError
+import id.startapp.domain.types.Result
+import id.startapp.infrastructure.pagination.PaginatedApiResponse
 
 /**
  * In-memory fake implementation of [CrudRepository] for unit testing.

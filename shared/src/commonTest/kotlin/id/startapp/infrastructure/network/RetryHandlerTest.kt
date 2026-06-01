@@ -1,6 +1,6 @@
-package id.startapp.pheromone.infrastructure.network
+package id.startapp.infrastructure.network
 
-import id.startapp.pheromone.domain.types.NetworkError
+import id.startapp.domain.types.NetworkError
 import io.ktor.utils.io.errors.IOException
 import kotlinx.coroutines.test.runTest
 import kotlinx.coroutines.delay
@@ -155,7 +155,7 @@ class RetryHandlerTest {
     @Test
     fun `retryWithBackoffResult returns Result Success`() = runTest {
         val result = retryWithBackoffResult { "success" }
-        assertTrue(result is id.startapp.pheromone.domain.types.Result.Success)
+        assertTrue(result is id.startapp.domain.types.Result.Success)
     }
 
     @Test
@@ -165,6 +165,6 @@ class RetryHandlerTest {
         ) {
             throw IOException("Failed")
         }
-        assertTrue(result is id.startapp.pheromone.domain.types.Result.Error)
+        assertTrue(result is id.startapp.domain.types.Result.Error)
     }
 }

@@ -1,4 +1,4 @@
-package id.startapp.pheromone.application.security
+package id.startapp.application.security
 
 import kotlin.test.Test
 import kotlin.test.assertEquals

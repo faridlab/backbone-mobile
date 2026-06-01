@@ -1,6 +1,6 @@
-package id.startapp.pheromone.infrastructure.repository
+package id.startapp.infrastructure.repository
 
-import id.startapp.pheromone.infrastructure.storage.KeyValueStorage
+import id.startapp.infrastructure.storage.KeyValueStorage
 
 /**
  * In-memory implementation of KeyValueStorage for testing.

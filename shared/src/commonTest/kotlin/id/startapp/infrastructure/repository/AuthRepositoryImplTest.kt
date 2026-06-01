@@ -1,13 +1,13 @@
-package id.startapp.pheromone.infrastructure.repository
+package id.startapp.infrastructure.repository
 
-import id.startapp.pheromone.domain.auth.entity.AuthToken
-import id.startapp.pheromone.domain.auth.entity.RegisterResult
-import id.startapp.pheromone.domain.auth.entity.User
-import id.startapp.pheromone.domain.auth.entity.VerifyEmailResult
-import id.startapp.pheromone.domain.types.NetworkError
-import id.startapp.pheromone.domain.types.Result
-import id.startapp.pheromone.infrastructure.network.api.AuthApi
-import id.startapp.pheromone.infrastructure.network.api.UserProviderResponse
+import id.startapp.domain.auth.entity.AuthToken
+import id.startapp.domain.auth.entity.RegisterResult
+import id.startapp.domain.auth.entity.User
+import id.startapp.domain.auth.entity.VerifyEmailResult
+import id.startapp.domain.types.NetworkError
+import id.startapp.domain.types.Result
+import id.startapp.infrastructure.network.api.AuthApi
+import id.startapp.infrastructure.network.api.UserProviderResponse
 import kotlinx.coroutines.test.runTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
