@@ -20,11 +20,11 @@ java {
 }
 
 android {
-    namespace = "id.startapp.pheromone"
+    namespace = "id.startapp"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "id.startapp.pheromone"
+        applicationId = "id.startapp"
         minSdk = 24
         targetSdk = 35
         versionCode = 1

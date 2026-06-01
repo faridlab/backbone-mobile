@@ -1,4 +1,4 @@
-rootProject.name = "pheromone"
+rootProject.name = "backbone"
 
 pluginManagement {
     repositories {

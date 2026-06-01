@@ -188,7 +188,7 @@ kotlin {
 
 // Android configuration
 android {
-    namespace = "id.startapp.pheromone.shared"
+    namespace = "id.startapp.shared"
     compileSdk = 35
     defaultConfig {
         minSdk = 24
@@ -216,7 +216,7 @@ android {
 sqldelight {
     databases {
         create("AppDatabase") {
-            packageName.set("id.startapp.pheromone")
+            packageName.set("id.startapp")
         }
     }
     linkSqlite = true
