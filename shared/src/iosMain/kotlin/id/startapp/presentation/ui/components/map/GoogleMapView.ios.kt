@@ -1,4 +1,4 @@
-package id.startapp.pheromone.presentation.ui.components.map
+package id.startapp.presentation.ui.components.map
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -19,7 +19,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import id.startapp.pheromone.presentation.util.NumberFormatUtils
+import id.startapp.presentation.util.NumberFormatUtils
 
 /**
  * iOS implementation of GoogleMapView

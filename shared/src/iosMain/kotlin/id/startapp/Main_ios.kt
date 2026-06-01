@@ -1,15 +1,15 @@
-package id.startapp.pheromone
+package id.startapp
 
 import com.arkivanov.decompose.DefaultComponentContext
 import com.arkivanov.essenty.lifecycle.LifecycleRegistry
-import id.startapp.pheromone.infrastructure.di.initKoin
-import id.startapp.pheromone.infrastructure.di.platformModule
-import id.startapp.pheromone.infrastructure.monitoring.Analytics
-import id.startapp.pheromone.infrastructure.monitoring.CrashReporter
-import id.startapp.pheromone.infrastructure.monitoring.PerformanceMonitor
-import id.startapp.pheromone.infrastructure.network.BuildConfig
-import id.startapp.pheromone.infrastructure.push.PushNotificationManager
-import id.startapp.pheromone.infrastructure.sync.BackgroundSyncManager
+import id.startapp.infrastructure.di.initKoin
+import id.startapp.infrastructure.di.platformModule
+import id.startapp.infrastructure.monitoring.Analytics
+import id.startapp.infrastructure.monitoring.CrashReporter
+import id.startapp.infrastructure.monitoring.PerformanceMonitor
+import id.startapp.infrastructure.network.BuildConfig
+import id.startapp.infrastructure.push.PushNotificationManager
+import id.startapp.infrastructure.sync.BackgroundSyncManager
 import platform.UIKit.UIViewController
 
 /**

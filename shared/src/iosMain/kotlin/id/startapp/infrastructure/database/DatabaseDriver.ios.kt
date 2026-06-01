@@ -1,8 +1,8 @@
-package id.startapp.pheromone.infrastructure.database
+package id.startapp.infrastructure.database
 
 import app.cash.sqldelight.driver.native.NativeSqliteDriver
 import app.cash.sqldelight.db.SqlDriver
-import id.startapp.pheromone.AppDatabase
+import id.startapp.AppDatabase
 import kotlinx.cinterop.ExperimentalForeignApi
 import platform.Foundation.NSHomeDirectory
 

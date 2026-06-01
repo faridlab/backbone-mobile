@@ -1,4 +1,4 @@
-package id.startapp.pheromone.infrastructure.crypto
+package id.startapp.infrastructure.crypto
 
 import kotlinx.cinterop.ExperimentalForeignApi
 import kotlinx.cinterop.UnsafeNumber
@@ -187,12 +187,12 @@ actual class CryptoProvider actual constructor() {
      * For now, uses a deterministic derivation from a fixed seed.
      */
     private fun deriveKey(): ByteArray {
-        val seed = "pheromone-cache-encryption-key-v1"
+        val seed = "backbone-cache-encryption-key-v1"
         return deriveBytes(seed, KEY_SIZE)
     }
 
     private fun deriveHmacKey(): ByteArray {
-        val seed = "pheromone-cache-hmac-key-v1"
+        val seed = "backbone-cache-hmac-key-v1"
         return deriveBytes(seed, HMAC_SIZE)
     }
 

@@ -1,4 +1,4 @@
-package id.startapp.pheromone.infrastructure.network
+package id.startapp.infrastructure.network
 
 import platform.Foundation.NSBundle
 

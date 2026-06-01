@@ -1,4 +1,4 @@
-package id.startapp.pheromone.infrastructure.sync
+package id.startapp.infrastructure.sync
 
 /**
  * iOS implementation of BackgroundSyncManager.
@@ -6,9 +6,9 @@ package id.startapp.pheromone.infrastructure.sync
  * Logs sync operations to console in development.
  * To activate production background sync:
  * 1. Add "Permitted background task scheduler identifiers" to Info.plist:
- *    id.startapp.pheromone.sync.refresh
+ *    id.startapp.sync.refresh
  * 2. Register task in AppDelegate didFinishLaunchingWithOptions:
- *    BGTaskScheduler.shared.register(forTaskWithIdentifier: "id.startapp.pheromone.sync.refresh")
+ *    BGTaskScheduler.shared.register(forTaskWithIdentifier: "id.startapp.sync.refresh")
  * 3. Replace println calls with BGTaskScheduler API calls:
  *    - BGAppRefreshTaskRequest for periodic sync
  *    - BGProcessingTaskRequest for longer sync operations
@@ -30,7 +30,7 @@ actual object BackgroundSyncManager {
 
         // Production: BGTaskScheduler registration happens in Swift AppDelegate
         // BGTaskScheduler.shared.register(
-        //     forTaskWithIdentifier: "id.startapp.pheromone.sync.refresh",
+        //     forTaskWithIdentifier: "id.startapp.sync.refresh",
         //     using: nil
         // ) { task in
         //     self.handleAppRefresh(task: task as! BGAppRefreshTask)
@@ -47,7 +47,7 @@ actual object BackgroundSyncManager {
 
         // Production: Schedule BGAppRefreshTask
         //
-        // let request = BGAppRefreshTaskRequest(identifier: "id.startapp.pheromone.sync.refresh")
+        // let request = BGAppRefreshTaskRequest(identifier: "id.startapp.sync.refresh")
         // request.earliestBeginDate = Date(timeIntervalSinceNow: Double(intervalMinutes * 60))
         // try BGTaskScheduler.shared.submit(request)
 
@@ -60,7 +60,7 @@ actual object BackgroundSyncManager {
     actual fun cancelPeriodicSync() {
         if (!isInitialized) return
 
-        // Production: BGTaskScheduler.shared.cancel(taskRequestWithIdentifier: "id.startapp.pheromone.sync.refresh")
+        // Production: BGTaskScheduler.shared.cancel(taskRequestWithIdentifier: "id.startapp.sync.refresh")
 
         _isSyncScheduled = false
         if (debugMode) {
@@ -73,7 +73,7 @@ actual object BackgroundSyncManager {
 
         // Production: Use BGProcessingTaskRequest for immediate sync
         //
-        // let request = BGProcessingTaskRequest(identifier: "id.startapp.pheromone.sync.process")
+        // let request = BGProcessingTaskRequest(identifier: "id.startapp.sync.process")
         // request.requiresNetworkConnectivity = true
         // request.requiresExternalPower = false
         // try BGTaskScheduler.shared.submit(request)

@@ -1,4 +1,4 @@
-package id.startapp.pheromone.infrastructure.monitoring
+package id.startapp.infrastructure.monitoring
 
 /**
  * iOS implementation of CrashReporter.

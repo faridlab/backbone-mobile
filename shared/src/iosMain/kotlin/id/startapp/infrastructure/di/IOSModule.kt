@@ -1,12 +1,12 @@
-package id.startapp.pheromone.infrastructure.di
+package id.startapp.infrastructure.di
 
-import id.startapp.pheromone.domain.auth.entity.AuthToken
-import id.startapp.pheromone.infrastructure.database.DatabaseManager
-import id.startapp.pheromone.infrastructure.database.createDriver
-import id.startapp.pheromone.infrastructure.network.ConnectivityMonitor
-import id.startapp.pheromone.infrastructure.storage.KeyValueStorage
-import id.startapp.pheromone.infrastructure.storage.SecureStorage
-import id.startapp.pheromone.infrastructure.storage.TokenStorage
+import id.startapp.domain.auth.entity.AuthToken
+import id.startapp.infrastructure.database.DatabaseManager
+import id.startapp.infrastructure.database.createDriver
+import id.startapp.infrastructure.network.ConnectivityMonitor
+import id.startapp.infrastructure.storage.KeyValueStorage
+import id.startapp.infrastructure.storage.SecureStorage
+import id.startapp.infrastructure.storage.TokenStorage
 import org.koin.core.module.Module
 import org.koin.dsl.module
 import platform.Foundation.NSUserDefaults

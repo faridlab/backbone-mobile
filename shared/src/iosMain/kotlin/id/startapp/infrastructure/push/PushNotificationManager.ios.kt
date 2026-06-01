@@ -1,4 +1,4 @@
-package id.startapp.pheromone.infrastructure.push
+package id.startapp.infrastructure.push
 
 /**
  * iOS implementation of PushNotificationManager.

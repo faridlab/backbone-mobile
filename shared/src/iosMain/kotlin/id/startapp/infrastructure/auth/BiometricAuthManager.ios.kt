@@ -1,4 +1,4 @@
-package id.startapp.pheromone.infrastructure.auth
+package id.startapp.infrastructure.auth
 
 import kotlinx.coroutines.suspendCancellableCoroutine
 import platform.LocalAuthentication.LAContext

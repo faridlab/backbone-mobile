@@ -1,4 +1,4 @@
-package id.startapp.pheromone.infrastructure.network
+package id.startapp.infrastructure.network
 
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -26,7 +26,7 @@ actual class ConnectivityMonitor {
     actual val status: StateFlow<ConnectivityStatus> = _status.asStateFlow()
 
     private var monitor: platform.Network.nw_path_monitor_t? = null
-    private val queue = dispatch_queue_create("id.startapp.pheromone.connectivity", DISPATCH_QUEUE_SERIAL)
+    private val queue = dispatch_queue_create("id.startapp.connectivity", DISPATCH_QUEUE_SERIAL)
 
     actual fun startMonitoring() {
         if (monitor != null) return
