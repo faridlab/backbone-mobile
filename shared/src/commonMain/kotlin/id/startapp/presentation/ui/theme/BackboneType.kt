@@ -1,4 +1,4 @@
-package id.startapp.pheromone.presentation.ui.theme
+package id.startapp.presentation.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
@@ -7,10 +7,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 
 /**
- * Pheromone Provider Mobile App Typography Scale
+ * Backbone Provider Mobile App Typography Scale
  *
  * Typography system based on the design system specification:
- * https://github.com/backbone/pheromone/docs/blueprint/development/provider-mobile/design/00-design-system.md
+ * https://github.com/backbone/backbone/docs/blueprint/development/provider-mobile/design/00-design-system.md
  *
  * Type Scale follows an 8pt grid system with Material 3 typography.
  */
@@ -188,12 +188,12 @@ val LabelSmall = TextStyle(
 // ============================================================================
 
 /**
- * Pheromone Typography System
+ * Backbone Typography System
  *
  * Complete typography configuration using Material 3 Typography.
- * Maps Pheromone type scale to Material 3 typography tokens.
+ * Maps Backbone type scale to Material 3 typography tokens.
  */
-val PheromoneTypography = Typography(
+val BackboneTypography = Typography(
     // Display styles
     displayLarge = DisplayLarge,
     displayMedium = DisplayMedium,

@@ -1,4 +1,4 @@
-package id.startapp.pheromone.presentation.ui.theme
+package id.startapp.presentation.ui.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
@@ -8,13 +8,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 
 /**
- * Pheromone Provider Mobile App Theme
+ * Backbone Provider Mobile App Theme
  *
- * Material 3 theme configuration using Pheromone brand colors.
+ * Material 3 theme configuration using Backbone brand colors.
  * Supports both light and dark themes.
  *
  * Design specification:
- * https://github.com/backbone/pheromone/docs/blueprint/development/provider-mobile/design/00-design-system.md
+ * https://github.com/backbone/backbone/docs/blueprint/development/provider-mobile/design/00-design-system.md
  */
 
 // ============================================================================
@@ -22,20 +22,20 @@ import androidx.compose.ui.graphics.Color
 // ============================================================================
 
 /**
- * Light theme color scheme using Pheromone brand colors.
+ * Light theme color scheme using Backbone brand colors.
  */
 private val LightColorScheme = lightColorScheme(
     // Primary colors - Brand Blue
-    primary = PheromoneBlue,
+    primary = BackboneBlue,
     onPrimary = Color.White,
-    primaryContainer = PheromoneBlueTint,
-    onPrimaryContainer = PheromoneBlueDark,
+    primaryContainer = BackboneBlueTint,
+    onPrimaryContainer = BackboneBlueDark,
 
     // Secondary colors
-    secondary = PheromoneBlueLight,
+    secondary = BackboneBlueLight,
     onSecondary = Color.White,
-    secondaryContainer = PheromoneBlueTint,
-    onSecondaryContainer = PheromoneBlueDark,
+    secondaryContainer = BackboneBlueTint,
+    onSecondaryContainer = BackboneBlueDark,
 
     // Tertiary colors - Express Purple
     tertiary = ExpressPurple,
@@ -66,7 +66,7 @@ private val LightColorScheme = lightColorScheme(
     // Inverse colors
     inverseSurface = DarkBackgroundPrimary,
     inverseOnSurface = SurfaceGray50,
-    inversePrimary = PheromoneBlueLight,
+    inversePrimary = BackboneBlueLight,
 
     // Success status (custom)
     // Material 3 doesn't have success color, using tertiary as workaround
@@ -78,20 +78,20 @@ private val LightColorScheme = lightColorScheme(
 // ============================================================================
 
 /**
- * Dark theme color scheme using Pheromone brand colors.
+ * Dark theme color scheme using Backbone brand colors.
  */
 private val DarkColorScheme = darkColorScheme(
     // Primary colors - Brand Blue (adjusted for dark mode)
-    primary = PheromoneBlueLight,
-    onPrimary = PheromoneBlueDark,
-    primaryContainer = PheromoneBlueDark,
-    onPrimaryContainer = PheromoneBlueTint,
+    primary = BackboneBlueLight,
+    onPrimary = BackboneBlueDark,
+    primaryContainer = BackboneBlueDark,
+    onPrimaryContainer = BackboneBlueTint,
 
     // Secondary colors
-    secondary = PheromoneBlue,
+    secondary = BackboneBlue,
     onSecondary = Color.White,
-    secondaryContainer = PheromoneBlueDark,
-    onSecondaryContainer = PheromoneBlueTint,
+    secondaryContainer = BackboneBlueDark,
+    onSecondaryContainer = BackboneBlueTint,
 
     // Tertiary colors - Express Purple (adjusted for dark mode)
     tertiary = ExpressPurpleLight,
@@ -122,7 +122,7 @@ private val DarkColorScheme = darkColorScheme(
     // Inverse colors
     inverseSurface = BackgroundPrimary,
     inverseOnSurface = TextPrimary,
-    inversePrimary = PheromoneBlueDark
+    inversePrimary = BackboneBlueDark
 )
 
 // ============================================================================
@@ -130,16 +130,16 @@ private val DarkColorScheme = darkColorScheme(
 // ============================================================================
 
 /**
- * Pheromone App Theme
+ * Backbone App Theme
  *
- * Main theme composable for the Pheromone Provider Mobile App.
- * Applies Material 3 theme with Pheromone brand colors and typography.
+ * Main theme composable for the Backbone Provider Mobile App.
+ * Applies Material 3 theme with Backbone brand colors and typography.
  *
  * @param darkTheme Whether to use dark theme (defaults to system setting)
  * @param content Content to be themed
  */
 @Composable
-fun PheromoneTheme(
+fun BackboneTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable () -> Unit
 ) {
@@ -147,7 +147,7 @@ fun PheromoneTheme(
 
     MaterialTheme(
         colorScheme = colorScheme,
-        typography = PheromoneTypography,
+        typography = BackboneTypography,
         content = content
     )
 }
@@ -157,9 +157,9 @@ fun PheromoneTheme(
 // ============================================================================
 
 /**
- * Pheromone shape constants for consistent border radius across the app.
+ * Backbone shape constants for consistent border radius across the app.
  */
-object PheromoneShapes {
+object BackboneShapes {
     /**
      * Small border radius - 4dp
      * Used for: Small UI elements
@@ -202,9 +202,9 @@ object PheromoneShapes {
 // ============================================================================
 
 /**
- * Pheromone spacing constants based on 8pt grid system.
+ * Backbone spacing constants based on 8pt grid system.
  */
-object PheromoneSpacing {
+object BackboneSpacing {
     /** XXSmall gaps - 4dp */
     const val XS = 4
 
@@ -235,9 +235,9 @@ object PheromoneSpacing {
 // ============================================================================
 
 /**
- * Pheromone icon size constants.
+ * Backbone icon size constants.
  */
-object PheromoneIconSizes {
+object BackboneIconSizes {
     /** Small icon - 18dp */
     const val Small = 18
 
@@ -251,7 +251,7 @@ object PheromoneIconSizes {
     const val XLarge = 48
 
     // ============================================================================
-    // Logo Sizes (for PheromoneLogo component)
+    // Logo Sizes (for BackboneLogo component)
     // ============================================================================
 
     /** Small logo - 80dp */
@@ -272,9 +272,9 @@ object PheromoneIconSizes {
 // ============================================================================
 
 /**
- * Pheromone component dimension constants.
+ * Backbone component dimension constants.
  */
-object PheromoneDimensions {
+object BackboneDimensions {
     /** Button height - 48dp */
     const val ButtonHeight = 48
 
@@ -312,7 +312,7 @@ object PheromoneDimensions {
     const val ChipHeight = 32
 
     // ============================================================================
-    // Spacing (from PheromoneSpacing, duplicated for convenience)
+    // Spacing (from BackboneSpacing, duplicated for convenience)
     // ============================================================================
 
     /** XXSmall gaps - 4dp */

@@ -1,12 +1,12 @@
-package id.startapp.pheromone.presentation.ui.theme
+package id.startapp.presentation.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
 /**
- * Pheromone Provider Mobile App Brand Colors
+ * Backbone Provider Mobile App Brand Colors
  *
  * Color palette based on the design system specification:
- * https://github.com/backbone/pheromone/docs/blueprint/development/provider-mobile/design/00-design-system.md
+ * https://github.com/backbone/backbone/docs/blueprint/development/provider-mobile/design/00-design-system.md
  */
 
 // ============================================================================
@@ -17,25 +17,25 @@ import androidx.compose.ui.graphics.Color
  * Main brand blue - Primary color for the app
  * Used for: Primary buttons, active states, brand elements
  */
-val PheromoneBlue = Color(0xFF004AAD)
+val BackboneBlue = Color(0xFF004AAD)
 
 /**
  * Light variant of brand blue
  * Used for: Hover states, light backgrounds
  */
-val PheromoneBlueLight = Color(0xFF3377CC)
+val BackboneBlueLight = Color(0xFF3377CC)
 
 /**
  * Dark variant of brand blue
  * Used for: Text on light backgrounds, dark theme
  */
-val PheromoneBlueDark = Color(0xFF003377)
+val BackboneBlueDark = Color(0xFF003377)
 
 /**
  * Tint background color
  * Used for: Section backgrounds, light accents
  */
-val PheromoneBlueTint = Color(0xFFE1F5FE)
+val BackboneBlueTint = Color(0xFFE1F5FE)
 
 // ============================================================================
 // Status Colors (Semantic)
@@ -298,7 +298,7 @@ val InputBorder = Color(0xFFD1D5DB)
  * Input field focused border color
  * Used for: Focused input field borders
  */
-val InputBorderFocused = PheromoneBlue
+val InputBorderFocused = BackboneBlue
 
 // ============================================================================
 // Onboarding/Illustration Colors

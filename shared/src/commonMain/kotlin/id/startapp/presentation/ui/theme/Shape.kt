@@ -1,4 +1,4 @@
-package id.startapp.pheromone.presentation.ui.theme
+package id.startapp.presentation.ui.theme
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Shapes

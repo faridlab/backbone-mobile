@@ -1,4 +1,4 @@
-package id.startapp.pheromone.presentation.ui.theme
+package id.startapp.presentation.ui.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
